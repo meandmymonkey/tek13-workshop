@@ -6,17 +6,19 @@ This is the application used for the workshop "An Overview of Symfony2 for Begin
 Installation
 ------------
 
-- Clone this repository
-- In the base directory, install Composer:
+Clone this repository
+
+Copy app/config/parameters.yml.dist to app/config/parameters.yml
+
+Edit parameters.yml to add your database credentials
+
+In the base directory, install Composer:
 
     curl -s http://getcomposer.org/installer | php
 
-- Use Composer to install vendor libraries
+Use Composer to install vendor libraries
 
     php composer.phar install
-
-- Copy app/config/parameters.yml.dist to app/config/parameters.yml
-- Edit parameters.yml to add your database credentials
 
 After that is done, load the demo data:
 
