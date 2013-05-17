@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}PHP Conferences{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/acmeconference/bootstrap/css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/acmeconference/css/style.css') }}"/>
+        <script type="text/javascript" src="{{ asset('bundles/acmeconference/js/jquery-1.9.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/acmeconference/bootstrap/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    </head>
+    <body>
+        {% set route = app.request.get('_route') %}
+        <div class="container">
+            <div class="navbar navbar-inverse row">
+                <div class="navbar-inner">
+                    <span class="brand">PHP Events</span>
+                    <ul class="nav">
+                        <li{% if 'conference_list' == route %} class="active"{% endif %}><a href="{{ path('conference_list') }}">Overview</a></li>
+                        <li{% if 'conference_create' == route %} class="active"{% endif %}><a href="{{ path('conference_create') }}">Create</a></li>
+                    </ul>
+                    {% if 'conference_list' == route %}
+                        <form class="navbar-search pull-right">
+                            <input type="text" class="search-query" placeholder="Filter">
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+            <section id="main" class="row">
+                {% block content %}{% endblock %}
+            </section>
+        </div>
+    </body>
+</html>

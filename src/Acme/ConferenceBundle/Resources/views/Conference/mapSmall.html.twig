@@ -1,0 +1,22 @@
+<div id="map-{{ conference.id }}" class="map thumbnail"></div>
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', function()
+    {
+        var pos = new google.maps.LatLng({{ conference.latitude }}, {{ conference.longitude }});
+        var map = new google.maps.Map(
+            document.getElementById('map-{{ conference.id }}'),
+            {
+                center: pos,
+                zoom: 12,
+                disableDefaultUI: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        );
+        var marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+            title: '{{ conference.name }}',
+            icon: 'http://www.google.com/mapfiles/marker_orange.png'
+        });
+    });
+</script>

@@ -1,0 +1,5 @@
+acme_conference:
+    resource: "@AcmeConferenceBundle/Controller/"
+    type:     annotation
+    prefix:   /conference
+

@@ -1,0 +1,12 @@
+{% extends 'AcmeConferenceBundle::layout.html.twig' %}
+
+{% block content %}
+
+    <h1>Edit {{ conference.name }}</h1>
+
+    <form action="{{ path('conference_edit', { 'slug': conference.slug }) }}" method="post" novalidate="novalidate">
+        {{ form_widget(form) }}
+        <button type="submit">Save</button>
+    </form>
+
+{% endblock %}
