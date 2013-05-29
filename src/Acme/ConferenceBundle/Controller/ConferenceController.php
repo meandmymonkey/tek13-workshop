@@ -87,6 +87,22 @@ class ConferenceController extends Controller
         );
     }
 
+    /**
+     * @Route("/{slug}/delete", name="conference_delete")
+     * @Method("POST")
+     * @Template()
+     */
+    public function deleteAction(Request $request, $slug)
+    {
+        $conference = $this->getConference($slug);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($conference);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('conference_list'));
+    }
+
     private function getConference($slug)
     {
         $conference = $this
