@@ -1,3 +1,5 @@
-# This file is auto-generated during the composer install
+imports:
+    - { resource: parameters.yml }
+    
 parameters:
     database_name: tek13-ws_test
